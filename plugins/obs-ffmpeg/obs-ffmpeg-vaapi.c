@@ -96,7 +96,7 @@ static bool vaapi_init_codec(struct vaapi_encoder *enc)
 	int ret;
 
 	/* 1. Allocate and initialize hardware interface */
-	ret = av_hwdevice_ctx_create(&enc->vadevice_ref, AV_HWDEVICE_TYPE_VAAPI, ":0" /*FIXME*/, NULL, 0);
+	ret = av_hwdevice_ctx_create(&enc->vadevice_ref, AV_HWDEVICE_TYPE_VAAPI, "/dev/dri/renderD129" /*FIXME*/, NULL, 0);
 	if (ret < 0) {
 		warn("Failed to create VAAPI device context: %s", av_err2str(ret));
 		return false;
